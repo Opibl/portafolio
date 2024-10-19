@@ -1,10 +1,15 @@
 document.addEventListener('DOMContentLoaded', function() {
+    const submitButton = document.querySelector('input[type="submit"]');
+    let isSubmitting = false; // Flag para controlar el estado del envío
+
     document.getElementById('contact-form').addEventListener('submit', function(event) {
         event.preventDefault(); // Previene el envío por defecto del formulario
+
+        if (isSubmitting) return; // Si ya se está enviando, no hacer nada
+
         const nombre = this.querySelector('input[name="Nombre"]').value.trim();
         const email = this.querySelector('input[name="mail"]').value.trim();
         const mensaje = this.querySelector('textarea[name="Mensaje"]').value.trim();
-        const submitButton = this.querySelector('input[type="submit"]');
 
         document.getElementById('nombre-error').textContent = '';
         document.getElementById('email-error').textContent = '';
@@ -32,13 +37,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
         const statusMessage = document.getElementById('status-message');
 
+        isSubmitting = true; // Marca que se está enviando
         submitButton.disabled = true; // Deshabilita el botón
         statusMessage.textContent = 'Enviando...'; // Muestra el mensaje de "Enviando"
 
         const formData = new FormData(this);
-        for (let [key, value] of formData.entries()) {
-            console.log(`${key}: ${value}`);
-        }
 
         fetch('https://nodemailer-tan.vercel.app/send-email', {
             method: 'POST',
@@ -53,13 +56,12 @@ document.addEventListener('DOMContentLoaded', function() {
                 icon: 'success',
                 confirmButtonText: 'OK'
             });
-            //statusMessage.textContent = ''; // Limpia el mensaje de estado
 
             setTimeout(() => {
                 submitButton.disabled = false; // Habilita el botón
                 statusMessage.textContent = ''; // Limpia el mensaje de estado
+                isSubmitting = false; // Restablece el estado de envío
             }, 3000); // 3000 ms = 3 segundos
-            
 
         })
         .catch(error => {
@@ -73,6 +75,7 @@ document.addEventListener('DOMContentLoaded', function() {
             });
             submitButton.disabled = false; // Vuelve a habilitar el botón si hay un error
             statusMessage.textContent = 'Hubo un problema al enviar el mensaje. Inténtalo de nuevo.'; // Muestra mensaje de error
+            isSubmitting = false; // Restablece el estado de envío
         });
     });
 });
