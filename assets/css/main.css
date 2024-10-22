@@ -55,6 +55,12 @@ body {
 	-webkit-text-size-adjust: none;
 }
 
+.center-recaptcha {
+    display: flex;
+    justify-content: center; /* Centra horizontalmente */
+    margin-top: 15px; /* Añadir un margen superior opcional */
+}
+
 mark {
 	background-color: transparent;
 	color: inherit;

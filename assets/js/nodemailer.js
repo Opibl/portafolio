@@ -31,6 +31,18 @@ document.addEventListener('DOMContentLoaded', function() {
             formValid = false;
         }
 
+
+
+
+        // Validar reCAPTCHA
+        const recaptchaResponse = grecaptcha.getResponse();
+        if (recaptchaResponse === "") {
+            // Si el reCAPTCHA no está completado
+            alert('Por favor, complete el reCAPTCHA.');
+            formValid = false;
+        }
+
+
         if (!formValid) {
             return; // Si no pasa la validación, no envía el formulario
         }
