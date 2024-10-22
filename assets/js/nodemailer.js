@@ -37,8 +37,13 @@ document.addEventListener('DOMContentLoaded', function() {
         // Validar reCAPTCHA
         const recaptchaResponse = grecaptcha.getResponse();
         if (recaptchaResponse === "") {
+            Swal.fire({
+                title: 'Error!',
+                text: 'Por favor, complete el reCAPTCHA.',
+                icon: 'error',
+                confirmButtonText: 'Try Again'
+            });
             // Si el reCAPTCHA no está completado
-            alert('Por favor, complete el reCAPTCHA.');
             formValid = false;
         }
 
