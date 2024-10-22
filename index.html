@@ -354,47 +354,53 @@
 
 					
 				<!-- Contact -->
-					<section id="contact" class="four">
-						<div class="container">
-
-							<header>
-								<h2>Contacto</h2>
-							</header>
-
-							<p>
-								Estoy siempre en busca de nuevas oportunidades para
-								colaborar en proyectos emocionantes o discutir ideas innovadoras. 
-								Si tienes alguna pregunta, deseas saber más sobre mi trabajo o crees que puedo
-								ser una buena adición a tu equipo, no dudes en contactarme.
-								Puedes ponerte en contacto conmigo a través de <strong class="gmail">pedro.basualto.7@gmail.com</strong> 
-								o completando el formulario a continuación. Estoy disponible para charlar 
-								sobre proyectos profesionales, colaboraciones o cualquier otra consulta que tengas.
-								¡Espero poder conectar contigo pronto!
-							</p>
-
-							<form id="contact-form" action="#">
-								<div class="row">
-									<div class="col-6 col-12-mobile">
-										<input type="text" name="Nombre" placeholder="Name" />
-										<p class="error-message" id="nombre-error"></p> <!-- Aquí se muestra el error -->
-									</div>
-									<div class="col-6 col-12-mobile">
-										<input type="email" name="mail" placeholder="Email" />
-										<p class="error-message" id="email-error"></p> <!-- Aquí se muestra el error -->
-									</div>
-									<div class="col-12">
-										<textarea name="Mensaje" placeholder="Message"></textarea>
-										<p class="error-message" id="mensaje-error"></p> <!-- Aquí se muestra el error -->
-									</div>
-									<div class="col-12">
-										<input type="submit" value="Send Message" />
-									</div>
+				<section id="contact" class="four">
+					<div class="container">
+						<header>
+							<h2>Contacto</h2>
+						</header>
+				
+						<p>
+							Estoy siempre en busca de nuevas oportunidades para
+							colaborar en proyectos emocionantes o discutir ideas innovadoras. 
+							Si tienes alguna pregunta, deseas saber más sobre mi trabajo o crees que puedo
+							ser una buena adición a tu equipo, no dudes en contactarme.
+							Puedes ponerte en contacto conmigo a través de <strong class="gmail">pedro.basualto.7@gmail.com</strong> 
+							o completando el formulario a continuación. Estoy disponible para charlar 
+							sobre proyectos profesionales, colaboraciones o cualquier otra consulta que tengas.
+							¡Espero poder conectar contigo pronto!
+						</p>
+				
+						<form id="contact-form" action="#">
+							<div class="row">
+								<div class="col-6 col-12-mobile">
+									<input type="text" name="Nombre" placeholder="Name" required />
+									<p class="error-message" id="nombre-error"></p> <!-- Aquí se muestra el error -->
 								</div>
-								<p id="status-message"></p> <!-- Mensaje de estado -->
-							</form>							
-
-						</div>
-					</section>
+								<div class="col-6 col-12-mobile">
+									<input type="email" name="mail" placeholder="Email" required />
+									<p class="error-message" id="email-error"></p> <!-- Aquí se muestra el error -->
+								</div>
+								<div class="col-12">
+									<textarea name="Mensaje" placeholder="Message" required></textarea>
+									<p class="error-message" id="mensaje-error"></p> <!-- Aquí se muestra el error -->
+								</div>
+								
+								<!-- Aquí se añade el reCAPTCHA -->
+								<div class="col-12">
+									<div class="g-recaptcha" data-sitekey="6LfjJGYqAAAAANFxlffh81LLhz4ZdCNFBmNp0qXk"></div>
+									<p class="error-message" id="captcha-error"></p> <!-- Aquí se muestra el error del CAPTCHA -->
+								</div>
+				
+								<div class="col-12">
+									<input type="submit" value="Send Message" />
+								</div>
+							</div>
+							<p id="status-message"></p> <!-- Mensaje de estado -->
+						</form>
+				
+					</div>
+				</section>
 
 			</div>
 
@@ -418,6 +424,28 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+			<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+			<script>
+				// Manejo del envío del formulario
+				document.getElementById('contact-form').addEventListener('submit', function(event) {
+					event.preventDefault(); // Prevenir el envío por defecto del formulario
+			
+					// Obtener la respuesta del reCAPTCHA
+					const captchaResponse = grecaptcha.getResponse();
+			
+					if (captchaResponse.length === 0) {
+						// Si no se completó el CAPTCHA
+						document.getElementById('captcha-error').innerText = 'Por favor, completa el CAPTCHA.';
+						return;
+					}
+			
+					// Si el CAPTCHA fue completado
+					// Aquí puedes enviar el formulario o realizar otras acciones necesarias
+					document.getElementById('status-message').innerText = '¡Formulario enviado exitosamente!';
+					this.reset(); // Resetea el formulario
+					grecaptcha.reset(); // Resetea el reCAPTCHA
+				});
+			</script>
 
 	</body>
 </html>
