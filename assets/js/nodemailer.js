@@ -10,12 +10,10 @@ document.addEventListener('DOMContentLoaded', function() {
         const nombre = this.querySelector('input[name="Nombre"]').value.trim();
         const email = this.querySelector('input[name="mail"]').value.trim();
         const mensaje = this.querySelector('textarea[name="Mensaje"]').value.trim();
-        const captchaResponse = grecaptcha.getResponse(); // Obtener la respuesta del captcha
 
         document.getElementById('nombre-error').textContent = '';
         document.getElementById('email-error').textContent = '';
         document.getElementById('mensaje-error').textContent = '';
-        document.getElementById('captcha-error').textContent = '';
 
         let formValid = true;
 
@@ -30,10 +28,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         if (!mensaje) {
             document.getElementById('mensaje-error').textContent = 'Por favor, ingrese su mensaje.';
-            formValid = false;
-        }
-        if (!captchaResponse) {
-            document.getElementById('captcha-error').textContent = 'Por favor, complete el captcha.';
             formValid = false;
         }
 
