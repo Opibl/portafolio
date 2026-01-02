@@ -2060,6 +2060,18 @@ input, select, textarea {
 				font-size: 1em;
 			}
 
+			/* Descripción de proyectos */
+
+			.descripcion-proyecto {
+			font-size: 0.85em;
+			color: #777;
+			margin: 0.5em 1em 1em 1em;
+			line-height: 1.5em;
+			text-align: left;
+			}
+
+
+
 /* Icons */
 
 	.icon {
