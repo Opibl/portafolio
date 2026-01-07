@@ -175,7 +175,7 @@ input, select, textarea {
 	}
 
 	strong, b {
-		font-weight: 300;
+		font-weight: 250;
 		color: #666;
 	}
 
@@ -230,25 +230,105 @@ input, select, textarea {
 		clear: both;
 	}
 
+
+
+	/* =========================
+   ETIQUETAS DE TECNOLOGÍAS
+   ========================= */
+
 	.lenguajes-container {
 		display: flex;
-		justify-content: space-around; /* Distribuye las etiquetas de manera equitativa */
-		flex-wrap: wrap; /* Permite que las etiquetas se muevan a la siguiente fila si no caben en una */
-		margin-top: 10px; /* Espacio entre el header y las etiquetas */
+		flex-wrap: wrap;
+		gap: 6px;
+		margin-top: 8px;
+	}
+
+	/* Base común */
+	.lenguajes-container .card-lenguaje {
+		display: inline-block;
+
+		font-size: 13px !important;
+		line-height: 1 !important;
+
+		padding: 2px 6px;
+		font-weight: 500;
+		letter-spacing: 0.04em;
 		text-transform: uppercase;
-		font-size: 0.8em;
-		font-weight: bold;
+
+		border-radius: 4px; /* cuadradas suaves */
+		white-space: nowrap;
+
+		background-color: #f3f4f6;
+		color: #374151;
+		border: 1px solid #e5e7eb;
 	}
-	
-	.card-lenguaje {
-		flex: 1 1 100px; /* Cada lenguaje ocupará al menos 100px y se ajustará a lo ancho del contenedor */
-		text-align: center; /* Centra el texto dentro de cada etiqueta */
-		margin: 5px; /* Espacio alrededor de cada lenguaje */
-		padding: 5px;
-		background-color: #f0f0f0; /* Color de fondo para las etiquetas (opcional) */
-		border-radius: 5px;
-		box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Sombra sutil (opcional) */
+
+	/* ===== Frontend ===== */
+	.lenguaje-html {
+		background-color: #fee2e2;
+		color: #991b1b;
+		border-color: #fecaca;
 	}
+
+	.lenguaje-css {
+		background-color: #dbeafe;
+		color: #1e40af;
+		border-color: #bfdbfe;
+	}
+
+	.lenguaje-javascript {
+		background-color: #fef9c3;
+		color: #92400e;
+		border-color: #fde68a;
+	}
+
+	/* ===== Frameworks / Backend ===== */
+	.lenguaje-nodejs {
+		background-color: #dcfce7;
+		color: #166534;
+		border-color: #bbf7d0;
+	}
+
+	.lenguaje-firebase {
+		background-color: #fff7ed;
+		color: #9a3412;
+		border-color: #fed7aa;
+	}
+
+	/* ===== Lenguajes ===== */
+	.lenguaje-python {
+		background-color: #e0f2fe;
+		color: #075985;
+		border-color: #bae6fd;
+	}
+
+	.lenguaje-java {
+		background-color: #ede9fe;
+		color: #5b21b6;
+		border-color: #ddd6fe;
+	}
+
+	.lenguaje-c {
+		background-color: #f3f4f6;
+		color: #374151;
+		border-color: #e5e7eb;
+	}
+
+	/* ===== Data / ML / IA ===== */
+	.lenguaje-ml {
+		background-color: #ecfeff;
+		color: #155e75;
+		border-color: #a5f3fc;
+	}
+
+	.lenguaje-ai {
+		background-color: #faf5ff;
+		color: #6b21a8;
+		border-color: #e9d5ff;
+	}
+
+
+
 
 	.skills-container {
 		display: flex;
@@ -2352,6 +2432,189 @@ input, select, textarea {
 			#main > section.four {
 				background-color: #e8edec;
 			}
+/* =========================
+   SOBRE MÍ – versión profesional
+   ========================= */
+
+/* Contenedor general */
+#about {
+	text-align: left;
+	padding: 3em 1em;
+}
+
+/* Título principal de sección (Tecnologías y Habilidades) */
+#about h2 {
+	font-size: 1.6rem;
+	font-weight: 600;
+	margin-bottom: 0.9em;
+	letter-spacing: -0.015em;
+	color: #111827;
+}
+
+/* Texto introductorio debajo del h2 */
+#about h2 + p {
+	max-width: 680px;
+	margin: 0 auto 1.8em;
+	font-size: 0.95rem;
+	line-height: 1.65;
+	color: #4b5563;
+}
+
+/* Subtítulos (Bases de Datos, ML, Cloud, etc.) */
+#about h3 {
+	font-size: 1.15rem;
+	font-weight: 600;
+	color: #111827;
+	margin-bottom: 0.5em;
+	letter-spacing: -0.01em;
+	padding-top: 1.2em;
+	border-top: 1px solid #e5e7eb;
+}
+
+/* Quita línea superior del primer bloque */
+#about h3:first-of-type {
+	border-top: none;
+	padding-top: 0;
+}
+
+/* Texto de cada bloque */
+#about h3 + p {
+	font-size: 0.95rem;
+	line-height: 1.65;
+	color: #4b5563;
+	max-width: 680px;
+	margin-bottom: 1.6em;
+}
+
+/* =========================
+   NORMALIZAR HEADERS PORTFOLIO
+   ========================= */
+
+/* Evita que <header> meta estilos raros */
+#portfolio header {
+	margin-bottom: 1.5em;
+	text-align: left;
+}
+
+/* Títulos principales de sección (Portafolio, Desarrollador de Software, ML, etc.) */
+#portfolio h2 {
+	display: flex;
+	align-items: center;
+	gap: 0.6em;
+
+	font-size: 1.7rem;
+	font-weight: 600;
+	letter-spacing: -0.02em;
+	color: #111827;
+
+	margin-bottom: 1em;
+}
+
+/* Íconos de los headers */
+#portfolio h2 i {
+	font-size: 1.4rem;
+	color: #2563eb;
+}
+
+/* Texto introductorio */
+#portfolio > p {
+	max-width: 700px;
+	font-size: 0.95rem;
+	line-height: 1.6;
+	color: #4b5563;
+	margin-bottom: 2.5em;
+}
+
+/* Headers dentro de las cards */
+.item header {
+	margin: 0;
+	padding: 0.8em 1em 0.4em;
+	background: none;
+	text-align: left;
+}
+
+/* Título de proyecto */
+.item header h3 {
+	font-size: 1rem;
+	font-weight: 600;
+	color: #111827;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 0.5em;
+}
+
+/* Icono GitHub dentro del título */
+.item header h3 i {
+	font-size: 1rem;
+	color: #6b7280;
+	transition: color 0.2s ease;
+}
+
+.item header h3 i:hover {
+	color: #111827;
+}
+
+/* =========================
+   Skills – grid profesional
+   ========================= */
+
+.skills-container {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+	gap: 2rem;
+
+	max-width: 800px;
+	margin: 3rem auto 0;
+	justify-items: center;
+}
+
+/* Cada skill */
+.skill {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 0.4rem;
+}
+
+/* Iconos */
+.skill i {
+	font-size: 42px;
+	color: #6b7280;
+	transition: color 0.2s ease, transform 0.2s ease;
+}
+
+/* Texto */
+.skill p {
+	font-size: 0.85rem;
+	color: #6b7280;
+}
+
+/* Hover sutil */
+.skill:hover i {
+	color: #2563eb;
+	transform: translateY(-2px);
+}
+
+
+/* Ajuste mobile */
+@media (max-width: 768px) {
+	#about {
+		padding: 2em 1em;
+	}
+
+	#about h2 {
+		font-size: 1.4rem;
+	}
+
+	#about h3 {
+		font-size: 1.1rem;
+	}
+
+	#about p {
+		font-size: 0.95rem;
+	}
+}
 
 /* Wide */
 
@@ -2721,3 +2984,54 @@ input, select, textarea {
 				}
 
 	}
+
+/* =========================
+   ESCALA FINAL – MÁS GRANDE
+   ========================= */
+
+/* Escala global */
+html {
+	font-size: 18px;   /* antes 17px */
+}
+
+/* Texto base */
+body {
+	font-size: 1.1rem;
+	line-height: 1.7;
+}
+
+/* Texto normal */
+p, li, span {
+	font-size: 1.1rem;
+	line-height: 1.7;
+}
+
+/* Títulos */
+h1 {
+	font-size: 2.6rem;
+}
+
+h2 {
+	font-size: 1.9rem;
+}
+
+h3 {
+	font-size: 1.35rem;
+}
+
+/* Portfolio */
+#portfolio p {
+	font-size: 1.1rem;
+}
+
+/* Sobre mí */
+#about p {
+	font-size: 1.1rem;
+}
+
+/* Skills */
+.skill p {
+	font-size: 1rem;
+}
+
+
